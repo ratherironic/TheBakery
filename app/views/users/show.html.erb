@@ -1,0 +1,44 @@
+<% @tasks.each do |task| %>
+<section>
+	<h3><%= task.name %></h3>
+	<div class="ChartProgress">
+		<span class="Percentage"></span>
+	</div>
+	<p><%= task.desc %></p>
+	<p><%= task.due %></p>
+	<p><%= task.user.login %></p>
+	<p><%= link_to 'Show', task %></p>
+	<p><%= link_to 'Edit', edit_task_path(task) %></p>
+	<p><%= link_to 'Destroy', task, :confirm => 'Are you sure?', :method => :delete %></p>
+	<div class="TaskInfo">
+		
+		<ul>
+			<% task.stories.order("complete ASC").each do |story| %>
+				<li  class="status<%= story.complete %>">
+					<span class="status"></span>
+					<h4><%= story.title %></h4>
+					<%= link_to 'Edit', edit_story_path(story), :class=>"button" %>
+				</li>
+			<% end %>
+		</ul>
+		<a href="#" class="ShowAddStory button">Add Story +</a>
+		<%= form_for([task, @task.stories.build]) do |f| %>
+		  <div class="field story">
+		    <%= f.label :title %><br />
+		    <%= f.text_field :title %>
+		  </div>
+		  <div class="field story_desc">
+		    <%= f.label :desc %><br />
+		    <%= f.text_field :desc %>
+		  </div>
+		  <div class="field story_status">
+		  	<%= f.select :complete, options_for_select([["Progress", ""], ["Finished", 0], ["Ready for QA", 1], ["Ready for Integration", 2], ["Started", 3], ["Not Started", 4]]) %>
+		  </div>
+		  <div class="actions story_submit">
+		    <%= f.submit %>
+		  </div>
+		<% end %>
+	</div>
+</section>
+<% end %>
+<%= render "tasks/form" %>

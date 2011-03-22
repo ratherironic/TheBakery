@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TheBakery</title>
+  <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag 'jquery', 'application' %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+	<article id="Manager">
+		<header>
+			<h2><%= link_to "the bakery", :root %></h2>
+				<% if current_user %>
+					<p id="AddTask" class="button"><a>Project+</a></p>
+					<div id="HeaderTabs">
+						<%= link_to current_user.login, user_path(current_user) %> |
+						<%= link_to "Sign out", logout_path %>
+				<% else  %>
+					<div id="HeaderTabs">
+						<%= link_to "Sign in", new_user_session_path %> |
+						<%= link_to "Register", new_user_path %>
+				<% end %>
+			</div>
+		</header>
+		<%= yield %>
+	</article>
+</body>
+</html>

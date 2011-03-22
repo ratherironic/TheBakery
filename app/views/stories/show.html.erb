@@ -1,0 +1,32 @@
+<section>
+	<p id="notice"><%= notice %></p>
+
+	<p>
+	  <b>Title:</b>
+	  <%= @story.title %>
+	</p>
+
+	<p>
+	  <b>Desc:</b>
+	  <%= @story.desc %>
+	</p>
+
+	<p>
+	  <b>Due:</b>
+	  <%= @story.due %>
+	</p>
+
+	<p>
+	  <b>Complete:</b>
+	  <%= @story.complete %>
+	</p>
+
+	<p>
+	  <b>Task:</b>
+	  <%= @story.task %>
+	</p>
+
+
+	<%= link_to 'Edit', edit_story_path(@story) %> |
+	<%= link_to 'Back', current_user %>
+</section>

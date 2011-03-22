@@ -1,0 +1,27 @@
+<section>
+	<p id="notice"><%= notice %></p>
+
+	<p>
+	  <b>Name:</b>
+	  <%= @task.name %>
+	</p>
+
+	<p>
+	  <b>Desc:</b>
+	  <%= @task.desc %>
+	</p>
+
+	<p>
+	  <b>Due:</b>
+	  <%= @task.due %>
+	</p>
+
+	<p>
+	  <b>User:</b>
+	  <%= @task.user.login %>
+	</p>
+
+
+	<%= link_to 'Edit', edit_task_path(@task) %> |
+	<%= link_to 'Back', current_user %>
+</section>

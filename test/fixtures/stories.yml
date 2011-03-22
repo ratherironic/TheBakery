@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  desc: MyText
+  due: 2011-03-20 15:14:19
+  complete: 1
+  task: 
+
+two:
+  title: MyString
+  desc: MyText
+  due: 2011-03-20 15:14:19
+  complete: 1
+  task: 
